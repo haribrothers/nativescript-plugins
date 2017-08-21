@@ -45,11 +45,44 @@ export class BlinkID {
                     "Warning", message, null, "OK", null).show();
                 return;
             }
-            let scanViewController = PPViewControllerFactory.cameraViewControllerWithDelegateCoordinatorError(null,coordinator);
+            let scanViewController = PPViewControllerFactory.cameraViewControllerWithDelegateCoordinatorError(BlinkIDDelegate.initWithOwner(new WeakRef(this)),coordinator);
             scanViewController.shouldAutorotateToInterfaceOrientation(UIInterfaceOrientation.LandscapeLeft);
             rootVC().presentViewControllerAnimatedCompletion(scanViewController,true,null);
         });
     }
+}
+
+class BlinkIDDelegate extends NSObject{
+    public static ObjCProtocols = [PPScanningDelegate];
+    private _owner: WeakRef<BlinkID>;
+
+    public static initWithOwner(owner: WeakRef<BlinkID>): BlinkIDDelegate {
+        let delegate = <BlinkIDDelegate>BlinkIDDelegate.new();
+        delegate._owner = owner;
+        return delegate;
+      }
+
+    public scanningViewControllerUnauthorizedCamera(scanningViewController:PPScanningViewController ) {
+        // Add any logic which handles UI when app user doesn't allow usage of the phone's camera
+    }
+
+    scanningViewControllerDidFindError(scanningViewController:PPScanningViewController,error:NSError) {
+        // Can be ignored. See description of the method
+    }
+
+    scanningViewControllerDidClose(scanningViewController:PPScanningViewController) {
+        // As scanning view controller is presented full screen and modally, dismiss it
+        rootVC().dismissViewControllerAnimatedCompletion(true,null);
+    }
+
+    scanningViewControllerDidOutputResults(scanningViewController,results:NSArray<any>) {
+        console.log(results);
+    }
+
+    alertViewClickedButtonAtIndex(alertView:UIAlertView,buttonIndex:number) {
+        rootVC().dismissViewControllerAnimatedCompletion(true,null);
+    }
+
 }
 
 const rootVC = function () {
