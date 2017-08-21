@@ -1,0 +1,11 @@
+{
+    "name": "nativescript-blinkid",
+    "version": "1.0.0",
+    "main": "blinkid",
+    "typings":"index.d.ts",
+    "nativescript": {
+      "platforms": {
+        "ios": "3.1.0"
+      }
+    }
+  }

@@ -1,0 +1,1 @@
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"iconv" -framework "AVFoundation" -framework "Accelerate" -framework "AssetsLibrary" -framework "AudioToolbox" -framework "CoreMedia" -framework "CoreText" -framework "CoreVideo" -framework "MicroBlink" -framework "QuartzCore" -framework "OpenGLES"
