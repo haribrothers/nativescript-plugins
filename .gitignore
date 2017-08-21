@@ -1,8 +1,5 @@
 node_modules/*
 platforms/*
-typingz/*
-typingz/i386/*
-typingz/x86_64/*
 lib/*
 *.js
 *.js.map
