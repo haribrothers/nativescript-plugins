@@ -1,1 +1,66 @@
-<Label class="blinkid" text="Hello BlinkidComponent!"></Label>
+<ActionBar title="BlinkID" class="action-bar"></ActionBar>
+<StackLayout>
+    <Label class="h2 text-center p-t-10" text="BlinkID Plugin"></Label>
+    <StackLayout>
+        <Button class="btn btn-rounded-sm btn-primary" text="Scan Passport" (tap)="scanPassport()"></Button>
+        <Button class="btn btn-rounded-sm btn-primary" text="Scan PDF714" (tap)="scanPdf714()"></Button>
+        <Button class="btn btn-rounded-sm btn-primary" text="Scan QRCode" (tap)="scanQRCode()"></Button>
+    </StackLayout>
+    <StackLayout class="hr-light m-t-20" ></StackLayout>
+    <StackLayout [visibility]="scanData.Type === 'PASSPORT' ? 'visible' : 'collapsed'" class="form">
+        <GridLayout class="input-field input-sides" rows="auto, auto" columns="*,*">
+            <Label text="Type" class="label font-weight-bold" row="0" col="0"></Label>
+            <TextField editable="false" class="input right" [text]="scanData.Type" row="0" col="1"></TextField>
+            <StackLayout class="hr-light" row="1" colSpan="2"></StackLayout>
+        </GridLayout>
+        <GridLayout class="input-field input-sides" rows="auto, auto" columns="*,*">
+            <Label text="Primary ID" class="label font-weight-bold" row="0" col="0"></Label>
+            <TextField editable="false" class="input right" [text]="scanData.PassportData?.primaryId" row="0" col="1"></TextField>
+            <StackLayout class="hr-light" row="1" colSpan="2"></StackLayout>
+        </GridLayout>
+        <GridLayout class="input-field input-sides" rows="auto, auto" columns="*,*">
+            <Label text="Secondary ID" class="label font-weight-bold" row="0" col="0"></Label>
+            <TextField editable="false" class="input right" [text]="scanData.PassportData?.secondaryId" row="0" col="1"></TextField>
+            <StackLayout class="hr-light" row="1" colSpan="2"></StackLayout>
+        </GridLayout>
+        <GridLayout class="input-field input-sides" rows="auto, auto" columns="*,*">
+            <Label text="DocumentNumber" class="label font-weight-bold" row="0" col="0"></Label>
+            <TextField editable="false" class="input right" [text]="scanData.PassportData?.documentNumber.replace('<','')" row="0" col="1"></TextField>
+            <StackLayout class="hr-light" row="1" colSpan="2"></StackLayout>
+        </GridLayout>
+        <GridLayout class="input-field input-sides" rows="auto, auto" columns="*,*">
+            <Label text="Gender" class="label font-weight-bold" row="0" col="0"></Label>
+            <TextField editable="false" class="input right" [text]="scanData.PassportData?.gender" row="0" col="1"></TextField>
+            <StackLayout class="hr-light" row="1" colSpan="2"></StackLayout>
+        </GridLayout>
+        <GridLayout class="input-field input-sides" rows="auto, auto" columns="*,*">
+            <Label text="Nationality" class="label font-weight-bold" row="0" col="0"></Label>
+            <TextField editable="false" class="input right" [text]="scanData.PassportData?.nationality" row="0" col="1"></TextField>
+            <StackLayout class="hr-light" row="1" colSpan="2"></StackLayout>
+        </GridLayout>
+    </StackLayout>
+    <StackLayout [visibility]="scanData.Type === 'PDF417' ? 'visible' : 'collapsed'" class="form">
+        <GridLayout class="input-field input-sides" rows="auto, auto" columns="*,*">
+            <Label text="Type" class="label font-weight-bold" row="0" col="0"></Label>
+            <TextField editable="false" class="input right" [text]="scanData.Type" row="0" col="1"></TextField>
+            <StackLayout class="hr-light" row="1" colSpan="2"></StackLayout>
+        </GridLayout>
+        <GridLayout class="input-field input-sides" rows="auto, auto" columns="*,*">
+            <Label text="Data" class="label font-weight-bold" row="0" col="0"></Label>
+            <TextField editable="false" class="input right" [text]="scanData.Pdf417Data" row="0" col="1"></TextField>
+            <StackLayout class="hr-light" row="1" colSpan="2"></StackLayout>
+        </GridLayout>
+    </StackLayout>
+    <StackLayout [visibility]="scanData.Type === 'QRCODE' ? 'visible' : 'collapsed'" class="form">
+        <GridLayout class="input-field input-sides" rows="auto, auto" columns="*,*">
+            <Label text="Type" class="label font-weight-bold" row="0" col="0"></Label>
+            <TextField editable="false" class="input right" [text]="scanData.Type" row="0" col="1"></TextField>
+            <StackLayout class="hr-light" row="1" colSpan="2"></StackLayout>
+        </GridLayout>
+        <GridLayout class="input-field input-sides" rows="auto, auto" columns="*,*">
+            <Label text="Data" class="label font-weight-bold" row="0" col="0"></Label>
+            <TextField editable="false" class="input right" [text]="this.scanData.QRCodeData" row="0" col="1"></TextField>
+            <StackLayout class="hr-light" row="1" colSpan="2"></StackLayout>
+        </GridLayout>
+    </StackLayout>
+</StackLayout>
