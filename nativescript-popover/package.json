@@ -1,0 +1,11 @@
+{
+    "name": "nativescript-popover",
+    "version": "1.0.0",
+    "main": "popover",
+    "typings":"index.d.ts",
+    "nativescript": {
+      "platforms": {
+        "ios": "3.1.0"
+      }
+    }
+  }

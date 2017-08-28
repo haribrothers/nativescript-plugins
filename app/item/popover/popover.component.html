@@ -1,0 +1,14 @@
+<ActionBar title="BlinkID" class="action-bar"></ActionBar>
+<StackLayout>
+    <Label class="h2 text-center p-t-10" text="Popover Plugin"></Label>
+    <StackLayout>
+        <Button #popoverButton class="btn btn-rounded-sm btn-primary" text="Scan Passport" (tap)="showPopover()"></Button>
+        <!-- <Button class="btn btn-rounded-sm btn-primary" text="Scan PDF714" (tap)="scanPdf714()"></Button>
+        <Button class="btn btn-rounded-sm btn-primary" text="Scan QRCode" (tap)="scanQRCode()"></Button> -->
+    </StackLayout>
+    <StackLayout class="hr-light m-t-20" ></StackLayout>
+    <StackLayout>
+        <Label text="{{result}}" textWrap="true"></Label>
+        
+    </StackLayout>
+</StackLayout>

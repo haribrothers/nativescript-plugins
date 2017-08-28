@@ -6,7 +6,7 @@ import { Item } from "./item";
 export class ItemService {
     private items = new Array<Item>(
         { id: 1, name: "BlinkID", description: "BlinkID Plugin Demo",route: "/blinkid" },
-        { id: 2, name: "CardIO", description: "CardIO Plugin Demo",route: "/blinkid" },
+        { id: 2, name: "Popover", description: "CardIO Plugin Demo",route: "/popover" },
     );
 
     getItems(): Item[] {

@@ -15,7 +15,7 @@ export class BlinkidComponent implements OnInit {
 	private blinkID: BlinkID;
 	public scanData:ScanData = new ScanData();
 	public scanType: string;
-	public scanText: string
+	public scanText: string;
 	constructor() {
 		let license = "LRHFGWQG-HA5UHABH-QVHJXULL-BS5S2I4Z-FIH4CI4Z-FIH4CI4Z-FIH4DAYL-TAR65VS3";
 		this.blinkID = new BlinkID(license);
