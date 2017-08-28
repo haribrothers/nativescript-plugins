@@ -74,8 +74,12 @@ class PopoverDataSource extends NSObject implements UITableViewDataSource {
     }
 
     public tableViewNumberOfRowsInSection(tableView: UITableView, section: number) {
-        let owner = this._owner.get();
-        return (owner && owner.tableData) ? owner.tableData.length : 0;
+        try{
+            let owner = this._owner.get();
+            return (owner && owner.tableData) ? owner.tableData.length : 0;
+        }catch(err){
+            return 0;
+        }
     }
 
 }

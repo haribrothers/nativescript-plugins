@@ -1,14 +1,26 @@
 <ActionBar title="BlinkID" class="action-bar"></ActionBar>
 <StackLayout>
     <Label class="h2 text-center p-t-10" text="Popover Plugin"></Label>
+    <StackLayout orientation="horizontal">
+        <Button #popoverButton1 class="btn btn-rounded-sm btn-primary" text="Show Menu" (tap)="showPopover()"></Button>
+        <Button #popoverButton2 class="btn btn-rounded-sm btn-primary" text="Scan Passport" (tap)="showCountry()"></Button>
+    </StackLayout>
     <StackLayout>
-        <Button #popoverButton class="btn btn-rounded-sm btn-primary" text="Scan Passport" (tap)="showPopover()"></Button>
+        
         <!-- <Button class="btn btn-rounded-sm btn-primary" text="Scan PDF714" (tap)="scanPdf714()"></Button>
         <Button class="btn btn-rounded-sm btn-primary" text="Scan QRCode" (tap)="scanQRCode()"></Button> -->
     </StackLayout>
     <StackLayout class="hr-light m-t-20" ></StackLayout>
-    <StackLayout>
-        <Label text="{{result}}" textWrap="true"></Label>
-        
+    <StackLayout class="form">
+        <GridLayout class="input-field input-sides" rows="auto, auto" columns="*,*">
+            <Label text="Food Item" class="label font-weight-bold" row="0" col="0"></Label>
+            <TextField editable="false" class="input right" [text]="result" row="0" col="1"></TextField>
+            <StackLayout class="hr-light" row="1" colSpan="2"></StackLayout>
+        </GridLayout>
+        <GridLayout class="input-field input-sides" rows="auto, auto" columns="*,*">
+            <Label text="Country" class="label font-weight-bold" row="0" col="0"></Label>
+            <TextField editable="false" class="input right" [text]="country" row="0" col="1"></TextField>
+            <StackLayout class="hr-light" row="1" colSpan="2"></StackLayout>
+        </GridLayout>
     </StackLayout>
 </StackLayout>
